@@ -1,77 +1,108 @@
-# 🔐 Authentication API – Signup, Login, Forgot & Reset Password
+# 🔐 Full-Stack Authentication System – Signup, Login, Forgot & Reset Password
 
-This project is a secure and scalable **Authentication System** built with **Node.js**, **Express.js**, and **MongoDB**. It supports user **Signup**, **JWT-based Login**, **User Detail Fetching**, and a secure **Forgot & Reset Password** flow via email.
+This is a **MERN stack** (MongoDB, Express.js, React.js, Node.js) full-stack authentication system that includes user signup, login, forgot password, and secure password reset functionality via email with a time-limited token. The system is built with clean architecture, modular code, and best practices in security and scalability.
 
 ---
 
-## 📌 Features
+## 🧩 Features
 
-✅ User Signup with:
+### ✅ Backend (Node.js + Express.js)
 
-* First Name, Last Name, Email, and Password
-* Unique email validation
-* Encrypted passwords using **bcrypt**
+* User Signup with:
 
-✅ Login with:
+  * First Name, Last Name, Email, Password
+  * Unique email validation
+  * Hashed passwords using bcrypt
+* JWT-based Login & Auth middleware
+* Forgot Password:
 
-* Email and Password
-* Returns **JWT Token** for authenticated routes
+  * Sends time-limited reset password link (valid for 5 minutes)
+  * Link received on registered email
+* Reset Password:
 
-✅ Get User Details:
+  * Accepts new password via frontend
+  * Updates password securely
+* Get User Info:
 
-* Requires valid JWT Token
-* Returns logged-in user's data
+  * Protected route using JWT
+* API documented using Postman
 
-✅ Forgot & Reset Password:
+### 🎨 Frontend (React.js)
 
-* Generates a secure reset link, valid for **5 minutes**
-* Sends reset link via email
-* Allows password reset through a simple UI
-* Password updated and confirmation message shown
-* Prevents reuse of old links
-
-✅ Clean code structure and RESTful API design
+* Signup and Login forms with client-side validation
+* Forgot Password form to send reset email
+* Reset Password page accessed via email link
+* Displays success messages and validation feedback
+* Clean UI with reusable components
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Backend:** Node.js, Express.js
-* **Database:** MongoDB, Mongoose
-* **Authentication:** JWT, Bcrypt
-* **Email Service:** Nodemailer
-* **UI:** Basic HTML/CSS (for Reset Password Page)
-* **Documentation:** Postman
+* **Frontend:** React.js, Tailwind CSS, Axios, React Router
+* **Backend:** Node.js, Express.js, Mongoose, JWT, Bcrypt, Nodemailer
+* **Database:** MongoDB (Cloud or Local)
+* **Others:** dotenv, cors, nodemon
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone the repository
+### 🔧 Backend Setup
+
+1. **Navigate to backend folder**
 
 ```bash
-git clone https://github.com/abhishekmishra0409/CFT_Assignment.git
-cd auth-api-task
+cd backend
 ```
 
-### 2. Install dependencies
+2. **Install dependencies**
 
 ```bash
 npm install
 ```
 
-### 3. Create `.env` file
+3. **Configure environment variables**
+   Create a `.env` file:
 
 ```env
 PORT=5000
-MONGO_URI=your_mongodb_uri
+MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 EMAIL_USER=your_email@example.com
-EMAIL_PASS=your_email_password_or_app_password
+EMAIL_PASS=your_app_password
 BASE_URL=http://localhost:4500
 ```
 
-### 4. Start the server
+4. **Start backend server**
+
+```bash
+npm start
+```
+
+---
+
+### 💻 Frontend Setup
+
+1. **Navigate to frontend folder**
+
+```bash
+cd frontend
+```
+
+2. **Install dependencies**
+
+```bash
+npm install
+```
+
+3. **Update API base URL in your Axios instance or env file**
+
+```env
+REACT_APP_API_URL=http://localhost:4500/api
+```
+
+4. **Start frontend app**
 
 ```bash
 npm run dev
@@ -79,28 +110,23 @@ npm run dev
 
 ---
 
-## 🔄 API Endpoints
+## 🧪 API Endpoints
 
-| Method | Endpoint                          | Description                    |
-| ------ | ----------------------------------| ------------------------------ |
-| POST   | `/api/auth/signup`                | Register a new user            |
-| POST   | `/api//authlogin`                 | Login and receive JWT token    |
-| GET    | `/api/user`                       | Get user details (Protected)   |
-| POST   | `/api/auth/forgot-password`       | Request a password reset email |
-| POST   | `/api/auth/reset-password/:token` | Submit new password            |
-
-📄 Full documentation available in Postman collection (see below).
-
+| Method | Endpoint                     | Description                     |
+| ------ | ---------------------------- | ------------------------------- |
+| POST   | `/api/signup`                | Register a new user             |
+| POST   | `/api/login`                 | Login and receive JWT token     |
+| GET    | `/api/user`                  | Get current user (JWT required) |
+| POST   | `/api/forgot-password`       | Send reset link to email        |
+| POST   | `/api/reset-password/:token` | Reset password using token      |
 
 ---
 
 
-## 📬 Contact
-
-If you have any questions or suggestions, feel free to reach out:
+## 🙋‍♂️ Author
 
 **Abhishek Mishra**
 📧 \[Your Email]
-🔗 [Your LinkedIn](https://www.linkedin.com/in/abhishekmishra04/)
-💻 [Your GitHub](https://github.com/abhishekmishra-dev)
+🔗 [LinkedIn](https://linkedin.com/in/yourprofile)
+💻 [GitHub](https://github.com/abhishekmishra-dev)
 
