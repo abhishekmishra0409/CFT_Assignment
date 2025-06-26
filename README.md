@@ -127,6 +127,6 @@ npm run dev
 
 **Abhishek Mishra**
 📧 \[Your Email]
-🔗 [LinkedIn](https://linkedin.com/in/yourprofile)
-💻 [GitHub](https://github.com/abhishekmishra-dev)
+🔗 [LinkedIn](https://www.linkedin.com/in/abhishekmishra04/)
+💻 [GitHub](https://github.com/abhishekmishra0409)
 
